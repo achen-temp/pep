@@ -1,0 +1,32 @@
+<div class="topic-container" *ngIf="topic">
+
+ <div class="topic-header" (click)="selectedVideo = false">
+    <div class="title-box">
+        <h2>{{ topic.title }}</h2>
+        <p>{{ topic.description }}</p>
+    </div>
+ </div>
+
+
+  <div *ngIf="!selectedVideo" class="video-grid">
+    <div class="video-card" *ngFor="let video of videos" (click)="playVideo(video)">
+      <img [src]="video.thumbnail" alt="video thumbnail" />
+      <h4>{{ video.title }}</h4>
+    </div>
+  </div>
+
+  <div *ngIf="selectedVideo" class="video-player-layout">
+    <div class="video-sidebar">
+      <h4>More Videos</h4>
+      <div class="sidebar-video" *ngFor="let video of videos" (click)="playVideo(video)">
+        <img [src]="video.thumbnail" alt="" />
+        <p>{{ video.title }}</p>
+      </div>
+    </div>
+
+    <div class="video-main">
+      <h3>{{ selectedVideo.title }}</h3>
+      <video [src]="selectedVideo.url" controls autoplay></video>
+    </div>
+  </div>
+</div>
