@@ -1,9 +1,9 @@
-export class courseVideo {
-
+export class CourseVideo {
     
   constructor(
     public title: string,
-    public url: string,
-    public thumbnail: string
+    public videoName: string,
+    public thumbnail: string,
+    public url: string
   ) {}
 }

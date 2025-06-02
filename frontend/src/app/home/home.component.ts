@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Topic } from '../courseVideoService/topic.model';
-import { Route, Router } from '@angular/router';
-import { courseVideo } from '../courseVideoService/courseVideo.model';
+import { Router } from '@angular/router';
 import { CourseVideosService } from '../courseVideoService/course-videos.service';
 
 @Component({
@@ -15,12 +14,16 @@ export class HomeComponent implements OnInit{
   constructor(private router: Router, private coursesService: CourseVideosService){}
 
   ngOnInit(): void {
-    this.topics = this.coursesService.getTopics();
+    this.coursesService.getAllTopics().subscribe({
+      next: data => {
+        this.topics = data;
+      },
+      error: e => console.log(e)
+    })
   }
 
-  goToTopic(id: number) {
-      this.coursesService.selectTopic(id);
-      this.router.navigate(['/topic', id]);
+  goToTopic(id: number) { 
+    this.router.navigate(['/topic', id]);
   }
 
 }

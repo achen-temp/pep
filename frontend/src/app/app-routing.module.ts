@@ -5,8 +5,11 @@ import { TopicDetailComponent } from './topic-detail/topic-detail.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'topic/:id', component: TopicDetailComponent}
+  {path: 'topic/:id', component: TopicDetailComponent},
 
+  //Redirect path
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({

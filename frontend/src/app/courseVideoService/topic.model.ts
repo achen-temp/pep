@@ -1,9 +1,9 @@
-import { courseVideo } from "./courseVideo.model";
+import { CourseVideo } from "./courseVideo.model";
 
 export class Topic {
     id!: number;
     title!: string;
     imageUrl!: string;
     description!: string;
-    videos: Array<courseVideo> = [];
+    videos: Array<CourseVideo> = [];
 }
