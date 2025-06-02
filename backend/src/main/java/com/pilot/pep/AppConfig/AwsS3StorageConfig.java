@@ -17,20 +17,10 @@ public class AwsS3StorageConfig {
 
     private final Region AWS_REGION = Region.US_EAST_2;
 
-    @Value("${cloud.aws.credentials.access-key}")
-    private String accessKey;
-
-    @Value("${cloud.aws.credentials.secret-key}")
-    private String secretKey;
-
-
     @Bean
     public S3Presigner s3Presigner() {
-        AwsBasicCredentials awsCreds = AwsBasicCredentials.create(accessKey, secretKey);
-
         return S3Presigner.builder()
                 .region(AWS_REGION)
-                .credentialsProvider(StaticCredentialsProvider.create(awsCreds))
                 .build();
     }
 

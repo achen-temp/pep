@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  database:
+    image: postgres:15
+    container_name: dev-postgres
+    environment:
+      POSTGRES_DB: pilot-dev-db
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pilotData:/var/lib/postgresql/data
+
+volumes:
+  pilotData:

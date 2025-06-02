@@ -1,5 +1,4 @@
-package com.pilot.pep.Exception;
-
+package com.pilot.pep.ExceptionHandler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

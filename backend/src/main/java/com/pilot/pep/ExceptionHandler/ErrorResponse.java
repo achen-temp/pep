@@ -1,4 +1,4 @@
-package com.pilot.pep.Exception;
+package com.pilot.pep.ExceptionHandler;
 
 import lombok.Data;
 
