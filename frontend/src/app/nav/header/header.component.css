@@ -1,42 +1,10 @@
 .app-header {
-  display: flex;
-  align-items: center;       /* Vertically center everything */
-  justify-content: flex-start; /* Align left */
-  padding: 0 30px;
-  height: 70px;
-  /* background: linear-gradient(90deg, #d84315, #ff7043); /* Your warm orange header */
-  /* color: white;  */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.left-section {
-  display: flex;
-  align-items: center;       /* Align logo and tabs vertically */
-  gap: 40px;                 /* Space between logo and tabs */
-}
-
-.logo {
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.nav-tabs {
-  display: flex;
-  gap: 30px;                /* Space between each tab */
-}
-
-.tab {
-  font-size: 20px;
-  padding: 10px 15px;
-  /* color: white; */
-  text-decoration: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  border-radius: 5px;
-}
-
-.tab:hover,
-.tab.active {
-  background-color: rgba(255, 255, 255, 0.2);
+.tab:hover {
+  color: #0d6efd;
+  text-decoration: underline;
 }

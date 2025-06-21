@@ -1,0 +1,42 @@
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" tabindex="-1" #deleteModal>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg border-0 rounded-4 animate__animated animate__fadeInDown">
+
+      <div class="modal-header border-0 bg-light">
+        <div class="d-flex align-items-center gap-2">
+          <i class="bi bi-exclamation-triangle-fill text-danger fs-3"></i>
+          <h5 class="modal-title text-danger mb-0">Confirm Delete</h5>
+        </div>
+        <button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body text-center py-4" *ngIf="selectedTopic">
+        <p class="text-muted mb-2">{{ message }}</p>
+        <h4 class="fw-semibold text-dark">{{ selectedTopic.title }}</h4>
+        <img *ngIf="selectedTopic.imageUrl" 
+             [src]="selectedTopic.imageUrl" 
+             alt="Topic Image" 
+             class="img-fluid rounded mt-3 shadow-sm" 
+             style="max-height: 160px; object-fit: cover;" />
+      </div>
+
+      <div class="modal-body text-center py-4" *ngIf="selectedVideo">
+        <p class="text-muted mb-2">{{ message }}</p>
+        <h4 class="fw-semibold text-dark">{{ selectedVideo.title }}</h4>
+        <img *ngIf="selectedVideo.thumbnail" 
+             [src]="selectedVideo.thumbnail" 
+             alt="Video Image" 
+             class="img-fluid rounded mt-3 shadow-sm" 
+             style="max-height: 160px; object-fit: cover;" />
+      </div>
+
+      <div class="modal-footer border-0 justify-content-center pb-4">
+        <button type="button" class="btn btn-outline-secondary px-4 rounded-pill" (click)="close()">Cancel</button>
+        <button type="button" class="btn btn-danger px-4 rounded-pill" (click)="confirm()">Delete</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+

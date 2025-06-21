@@ -1,0 +1,51 @@
+<div class="modal fade" tabindex="-1" #addTopicModal>
+  <div class="modal-dialog">
+    <form (ngSubmit)="submitForm()" #topicForm="ngForm" class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{formTitle}}</h5>
+        <button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input 
+            type="text" 
+            id="title" 
+            name="title" 
+            class="form-control" 
+            [(ngModel)]="topic.title" 
+            required />
+        </div>
+
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label">Image URL</label>
+          <input 
+            type="url" 
+            id="imageUrl" 
+            name="imageUrl" 
+            class="form-control" 
+            [(ngModel)]="topic.imageUrl" 
+            required />
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea 
+            id="description" 
+            name="description" 
+            class="form-control" 
+            [(ngModel)]="topic.description" 
+            rows="3" 
+            required>
+          </textarea>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="close()">Cancel</button>
+        <button type="submit" [disabled]="topicForm.invalid" class="btn btn-primary">Add</button>
+      </div>
+    </form>
+  </div>
+</div>

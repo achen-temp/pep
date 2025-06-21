@@ -1,0 +1,27 @@
+<!-- Course Grid Section with Overlaid Arrows -->
+<div class="course-grid-container">
+
+  <!-- Left Arrow -->
+  <button 
+    class="course-grid-arrow left"
+    [disabled]="currentPage === 1"
+    (click)="setPage(currentPage - 1)">
+    &#10094;
+  </button>
+
+  <!-- Course Grid -->
+  <div class="row g-4">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let topic of pagedCourses">
+      <app-topic-card [isAdmin]="isAdmin" [topic]="topic"></app-topic-card>
+    </div>
+  </div>
+
+  <!-- Right Arrow -->
+   <button 
+    class="course-grid-arrow right"
+    [disabled]="currentPage === totalPages"
+    (click)="setPage(currentPage + 1)">
+    &#10095;
+  </button>
+
+</div>

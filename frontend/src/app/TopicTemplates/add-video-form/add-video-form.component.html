@@ -1,0 +1,41 @@
+<!-- Add Video Modal -->
+<div class="modal fade" #addVideoModal tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg" style="width: 50%;">
+    <div class="modal-content border-0 shadow-lg rounded-4">
+
+      <div class="modal-header bg-primary text-white rounded-top-4">
+        <h5 class="modal-title fw-semibold">{{formTitle}}</h5>
+        <button type="button" class="btn-close btn-close-white" (click)="close()" aria-label="Close"></button>
+      </div>
+
+      <form (ngSubmit)="submitAddVideo()" #videoForm="ngForm">
+        <div class="modal-body">
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Title</label>
+                <input type="text" class="form-control" [(ngModel)]="newVideo.title" name="title" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Video Name</label>
+                <input type="text" class="form-control" [(ngModel)]="newVideo.videoName" name="videoName" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Thumbnail URL</label>
+                <input type="text" class="form-control" [(ngModel)]="newVideo.thumbnail" name="thumbnail" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-semibold">Video URL</label>
+                <input type="text" class="form-control" [(ngModel)]="newVideo.url" name="url" required />
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" (click)="close()">Cancel</button>
+          <button type="submit" class="btn btn-primary" [disabled]="videoForm.invalid">Add Video</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

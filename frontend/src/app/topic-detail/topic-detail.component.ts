@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { CourseVideo } from '../courseVideoService/courseVideo.model';
 import { CourseVideosService } from '../courseVideoService/course-videos.service';
 import { Topic } from '../courseVideoService/topic.model';
+import { AuthService } from '../Auth/auth.service';
+import { UserRole } from '../Auth/user.model';
 
 @Component({
   selector: 'app-topic-detail',
@@ -10,12 +12,14 @@ import { Topic } from '../courseVideoService/topic.model';
   styleUrls: ['./topic-detail.component.css']
 })
 export class TopicDetailComponent implements OnInit{
-  topicId!: number;
   topic!: Topic;
   videos: CourseVideo[] = [];
-  selectedVideo: CourseVideo | null = null;
+  selectedVideo? : CourseVideo;
+  isAdmin: boolean = false;
 
-  constructor(private courseService: CourseVideosService, private route: ActivatedRoute) {}
+  constructor(private courseService: CourseVideosService, private route: ActivatedRoute,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
@@ -27,6 +31,10 @@ export class TopicDetailComponent implements OnInit{
         this.videos = selectedTopic.videos;
       }
     });
+
+    if(this.authService.getUserRole() === UserRole.ADMIN){
+        this.isAdmin = true;
+    } 
   }
 
   playVideo(video: CourseVideo) {

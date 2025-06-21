@@ -1,11 +1,41 @@
-<header class="app-header">
-  <div class="left-section">
-    <div class="logo">Pilot-Logo</div>
-    <nav class="nav-tabs">
-      <a routerLink="/home" class="tab">Home</a>
-      <a routerLink="/about" class="tab">About</a>
-      <a routerLink="/contact" class="tab">Contact</a>
+<header class="app-header d-flex justify-content-between align-items-center px-4 py-2 shadow-sm bg-white">
+  <!-- Left Section -->
+  <div class="left-section d-flex align-items-center gap-4">
+    <div class="logo fw-bold fs-4 text-primary">Pilot-Logo</div>
+    <nav class="nav nav-pills gap-2">
+      <a routerLink="/home" routerLinkActive="active" class="nav-link px-3 py-2">
+        <i class="bi bi-house-door me-1"></i> Home
+      </a>
+      <a routerLink="/topics" routerLinkActive="active" class="nav-link px-3 py-2">
+        <i class="bi bi-journal-bookmark me-1"></i> Courses
+      </a>
+      <a routerLink="/about" routerLinkActive="active" class="nav-link px-3 py-2">
+        <i class="bi bi-info-circle me-1"></i> About
+      </a>
+      <a routerLink="/contact" routerLinkActive="active" class="nav-link px-3 py-2">
+        <i class="bi bi-info-circle me-1"></i> Contact
+      </a>
     </nav>
+
   </div>
-  <!-- You can add something else here if needed on right side -->
+
+  <!-- Right Section:  -->
+  <div class="right-section d-flex gap-2">
+    <!-- Add Topic button-->
+    <button *ngIf="isAdmin" class="btn btn-outline-primary fw-semibold px-4"
+      (click)="addTopicForm.openNewForm()">
+      <i class="bi bi-plus-lg me-1"></i> Add Topic
+    </button>
+
+    <!-- Login button -->
+    <button routerLink="/login" *ngIf="!isLogined" class="btn btn-outline-primary fw-semibold px-4">
+      <i class="bi bi-box-arrow-in-right me-1"></i> Login
+    </button>
+    <button routerLink="/logout" *ngIf="isLogined" class="btn btn-outline-primary fw-semibold px-4"
+      (click)="onLogout()">
+      <i class="bi bi-box-arrow-in-right me-1"></i> Logout
+    </button>
+  </div>
 </header>
+
+<app-add-topic-form (topicAdded)="onTopicAdded($event)" #addTopicForm></app-add-topic-form>

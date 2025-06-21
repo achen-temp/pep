@@ -1,0 +1,89 @@
+<div class="container py-5">
+  <div class="row justify-content-center align-items-center min-vh-100">
+    <div class="col-lg-8 bg-white rounded shadow p-5">
+
+      <div class="row g-5">
+
+        <!-- Left: Form -->
+        <div class="col-md-6">
+          <h2  class="fw-bold mb-4">Create your account</h2>
+          <!-- error message -->
+          <div *ngIf="errorMessage" class="alert alert-danger text-center mb-3 py-2">
+            {{ errorMessage }}
+          </div>
+
+          <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+            <!-- Name -->
+            <!-- <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Name"
+                name="name"
+                required
+                [(ngModel)]="form.name"
+              />
+              <label for="name"><i class="bi bi-person-fill me-2"></i> Your Name</label>
+            </div> -->
+
+            <!-- Email -->
+            <div class="form-floating mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Email"
+                name="email"
+                required
+                [(ngModel)]="form.username"
+              />
+              <label for="email"><i class="bi bi-envelope-fill me-2"></i> Email address</label>
+            </div>
+
+            <!-- Password -->
+            <div class="form-floating mb-3">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Password"
+                name="password"
+                required
+                minlength="6"
+                [(ngModel)]="form.password"
+              />
+              <label for="password"><i class="bi bi-lock-fill me-2"></i> Password</label>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary w-100 py-2 fw-semibold"
+              [disabled]="!signupForm.form.valid"
+            >
+              Sign Up
+            </button>
+          </form>
+
+          <p class="mt-4 text-muted small text-center">
+            Already have an account?
+            <a routerLink="/login" class="text-decoration-none">Log in here</a>
+          </p>
+        </div>
+
+        <!-- Right: Visual/Message -->
+        <div class="col-md-6 d-none d-md-block text-center">
+          <img
+            src="https://media.istockphoto.com/id/1399506394/vector/concept-of-up-skill-and-learning.jpg?s=612x612&w=0&k=20&c=_sN5jIE3OGQX-eFVcEk-Gwgne-Fy7CnfpCfHpfDvYug="
+            alt="Placeholder"
+            class="img-fluid rounded mb-3"
+          />
+          <h5 class="fw-bold">Join thousands of learners</h5>
+          <p class="text-muted">Start exploring new skills, deepening existing passions, and getting lost in creativity.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

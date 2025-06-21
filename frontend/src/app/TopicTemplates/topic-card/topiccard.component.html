@@ -1,0 +1,26 @@
+<div class="card h-100 shadow-sm border-0 position-relative hover-shadow">
+  <!-- Image -->
+  <img [src]="topic.imageUrl" class="card-img-top" alt="Course image"  (click)="onClick()"/>
+
+  <!-- Card Body -->
+  <div class="card-body" (click)="onClick()">
+    <h5 class="card-title">{{ topic.title }}</h5>
+    <p class="card-text text-muted small mb-5">{{ topic.description }}</p>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="card-actions" *ngIf="isAdmin">
+    <button class="btn btn-lg btn-outline-primary d-flex align-items-center justify-content-center card-actions-btn"
+      (click)="updateTopicForm.openUpdateForm(topic)">
+          <i class="bi bi-pencil-fill fs-6"></i>
+    </button>
+
+    <button class="btn btn-lg btn-outline-danger d-flex align-items-center justify-content-center card-actions-btn"
+      (click)="deleteTopicForm.openSelectedTopic(topic)">
+            <i class="bi bi-trash-fill fs-6"></i>
+    </button>
+  </div>
+</div>
+
+<app-add-topic-form (topicAdded)="onTopicUpdated($event)" #updateTopicForm></app-add-topic-form>
+<app-delete-form (confirmed)="onDeleteConfirmed()" #deleteTopicForm></app-delete-form>
