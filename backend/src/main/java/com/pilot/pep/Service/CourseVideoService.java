@@ -1,7 +1,7 @@
 package com.pilot.pep.Service;
 
-import com.pilot.pep.Domain.CourseVideos;
-import com.pilot.pep.Repository.CourseVideosRepository;
+import com.pilot.pep.Domain.CourseVideo;
+import com.pilot.pep.Repository.CourseVideoRepository;
 import com.pilot.pep.Repository.TopicRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,21 +10,21 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class CourseVideosService {
+public class CourseVideoService {
     @Autowired
-    CourseVideosRepository courseVideosRepository;
+    CourseVideoRepository courseVideoRepository;
     @Autowired
     TopicRepository topicRepository;
 
-    public void saveVideo(Long topicId, String title, String thumbnailName, String VideoName) {
+    public void saveVideo(Integer topicId, String title, String thumbnailName, String VideoName) {
         //Check if the topic exists
         topicRepository.findById(topicId).orElseThrow(() -> new RuntimeException("Topic doesn't exist"));
 
-        CourseVideos video = new CourseVideos();
+        CourseVideo video = new CourseVideo();
         video.setTitle(title);
         video.setThumbnail(thumbnailName);
         video.setVideoName(VideoName);
-        courseVideosRepository.save(video);
+        courseVideoRepository.save(video);
     }
 
 }

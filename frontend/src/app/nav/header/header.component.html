@@ -1,7 +1,10 @@
 <header class="app-header d-flex justify-content-between align-items-center px-4 py-2 shadow-sm bg-white">
   <!-- Left Section -->
   <div class="left-section d-flex align-items-center gap-4">
-    <div class="logo fw-bold fs-4 text-primary">Pilot-Logo</div>
+    <div class="logo">
+      <img src="/assets/logo.jpg" alt="Pilot Logo" class="img-fluid" style="height:40px;">
+    </div>
+
     <nav class="nav nav-pills gap-2">
       <a routerLink="/home" routerLinkActive="active" class="nav-link px-3 py-2">
         <i class="bi bi-house-door me-1"></i> Home
@@ -22,8 +25,7 @@
   <!-- Right Section:  -->
   <div class="right-section d-flex gap-2">
     <!-- Add Topic button-->
-    <button *ngIf="isAdmin" class="btn btn-outline-primary fw-semibold px-4"
-      (click)="addTopicForm.openNewForm()">
+    <button *ngIf="isAdmin" class="btn btn-outline-primary fw-semibold px-4" (click)="addTopicForm.openNewForm()">
       <i class="bi bi-plus-lg me-1"></i> Add Topic
     </button>
 

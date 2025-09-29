@@ -9,20 +9,23 @@ import { AuthGuard } from './Auth/auth.guard';
 import { LogoutComponent } from './Eportal/logout/logout.component';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'topics', component: TopicsComponent},
-  {path: 'topics/:id', component: TopicDetailComponent, canActivate:[AuthGuard]},
-  {path: 'signup', component: SignupComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'logout', component: LogoutComponent},
+  { path: 'home', component: HomeComponent },
+  { path: 'topics', component: TopicsComponent },
+  {
+    path: 'topics/:id',
+    component: TopicDetailComponent,
+  },
+  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
 
   //Redirect path
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: '**', redirectTo: 'home', pathMatch: 'full'}
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

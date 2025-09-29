@@ -4,7 +4,6 @@ import com.pilot.pep.Domain.Topic;
 import com.pilot.pep.Service.S3StorageService;
 import com.pilot.pep.Service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -29,7 +28,7 @@ public class CoursesController {
     }
 
     @GetMapping("/{id}")
-    public Topic getTopicById(@PathVariable long id) throws Exception {
+    public Topic getTopicById(@PathVariable Integer id) throws Exception {
         return topicService.getTopicById(id);
     }
 

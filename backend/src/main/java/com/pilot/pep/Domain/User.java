@@ -1,10 +1,8 @@
 package com.pilot.pep.Domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 
@@ -26,7 +24,7 @@ public class User {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    Long id;
+    Integer id;
     String email;
     String password;
     String role;
